@@ -4,9 +4,12 @@
 
 namespace Betoneira
 {
-    namespace File
+    class FileHandler
     {
-        std::string read(std::string path);
-        void write(std::string path, std::string content);
+        FileHandler();
+        ~FileHandler();
+        
+        virtual std::string read(std::string path);
+        virtual void write(std::string path, std::string content);
     }
 }

@@ -5,7 +5,10 @@
 
 using namespace Betoneira;
 
-std::string File::read(std::string path)
+FileHandler::FileHandler(){};
+FileHandler::~FileHandler(){};
+
+std::string FileHandler::read(std::string path)
 {
     std::ifstream file(path);
     
@@ -15,7 +18,7 @@ std::string File::read(std::string path)
     return buffer.str();
 }
 
-void File::write(std::string path, std::string content)
+void FileHandler::write(std::string path, std::string content)
 {
 
 }
