@@ -5,8 +5,7 @@
 #include "glad.h"
 #include <GLFW/glfw3.h>
 
-void Betoneira::quit(int exitCode)
+void Betoneira::quit()
 {
     glfwTerminate();
-    exit(exitCode);
 }

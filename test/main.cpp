@@ -14,5 +14,6 @@ int main(int, char**)
         window.clear();
     }
 
-    Betoneira::quit(EXIT_SUCCESS); // already exits the process
+    Betoneira::quit();
+    return EXIT_SUCCESS;
 }
