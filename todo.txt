@@ -1,2 +1,10 @@
 (engine)
-- ini file handler class
+- - file.h/.cpp
+- (those are supposed to be inside FileHandler class)
+- binary file handler(do we need to create a class related to memory?)
+- image loader(probably related to binary file handler)
+- audio loader(probably related to binary file handler... should a binary handler class be created?)
+- 3d model loader
+
+- (those are supposed to have their own classes)
+- ini file handler class(something like IniHandler? ConfigFileHandler?)
