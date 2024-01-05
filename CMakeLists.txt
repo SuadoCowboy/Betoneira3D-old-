@@ -10,7 +10,7 @@ find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
 project(BetoneiraEngine VERSION 0.1)
-add_executable(BetoneiraEngine "${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/engine.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/window/window.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/shared/shared.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/glad.c" "${CMAKE_CURRENT_SOURCE_DIR}/engine/shader/shader.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/file/file.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/color/color.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/input/input.cpp")
+add_executable(BetoneiraEngine "${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/engine.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/window/window.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/shared/shared.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/glad.c" "${CMAKE_CURRENT_SOURCE_DIR}/engine/shader/shader.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/file/file.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/color/color.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/input/input.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/random/random.cpp")
 
 target_link_libraries(BetoneiraEngine glfw3)
 target_link_libraries(BetoneiraEngine OpenGL::GL)
