@@ -5,6 +5,7 @@
 #include "shared/shared.h"
 #include "shader/shader.h"
 #include "file/file.h"
+#include "color/color.h"
 
 namespace Betoneira
 {

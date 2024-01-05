@@ -3,6 +3,9 @@
 #include "glad.h"
 #include <GLFW/glfw3.h>
 #include <string>
+#include "shared/shared.h"
+#include "color/color.h"
+#include <iostream>
 
 namespace Betoneira
 {
@@ -17,7 +20,8 @@ namespace Betoneira
         bool shouldClose();
         void close();
         void clear();
-        void fill(float r, float g, float b, float a);
-        void fill(float r, float g, float b);
+        
+        void fill(unsigned char r, unsigned char g, unsigned char b, unsigned char a=255);
+        void fill(Color color);
     };
 }

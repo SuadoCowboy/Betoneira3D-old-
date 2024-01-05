@@ -1,9 +1,5 @@
 #include "window.h"
 
-#include "shared/shared.h"
-
-#include <iostream>
-
 using namespace Betoneira;
 
 Window::Window(int width, int height, std::string title)
@@ -38,16 +34,15 @@ void Window::close()
     glfwSetWindowShouldClose(glfwWindow, true);
 }
 
-void Window::fill(float r, float g, float b, float a)
+void Window::fill(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-    glClearColor(r, g, b, a);
+    glClearColor(Color::byteToGLfloat(r), Color::byteToGLfloat(g), Color::byteToGLfloat(b), Color::byteToGLfloat(a));
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Window::fill(float r, float g, float b)
+void Window::fill(Color color)
 {
-    glClearColor(r, g, b, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    fill(color.getR(), color.getG(), color.getB(), color.getA());
 }
 
 void Window::clear()

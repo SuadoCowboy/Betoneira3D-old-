@@ -6,10 +6,12 @@ int main(int, char**)
 {
     Betoneira::init();
 
+    Betoneira::Color backgroundColor(51, 127, 76);
+
     Betoneira::Window window(800, 600, "2D Game Test");
     while (!window.shouldClose())
     {
-        window.fill(0.2f, 0.5f, 0.3f);
+        window.fill(backgroundColor);
 
         window.clear();
     }
