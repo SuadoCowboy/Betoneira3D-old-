@@ -36,12 +36,14 @@ namespace Betoneira
         
         extern std::map<int, bool> keysPressed;
         extern std::map<int, bool> keysJustPressed;
+        extern std::map<int, bool> keysJustReleased;
 
         extern GLFWwindow* GLFWWindow; // this value will be set by the last loaded Window class
 
         void update();
         bool keyPressed(int key);
         bool keyJustPressed(int key);
+        bool keyJustReleased(int key);
     }
 
     /*namespace Input
