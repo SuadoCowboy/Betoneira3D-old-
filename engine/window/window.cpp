@@ -12,7 +12,8 @@ Window::Window(int width, int height, std::string title)
     if (glfwWindow == NULL)
     {
         std::cerr << "ERROR::ENGINE: Failed to create GLFW window." << std::endl;
-        quit(EXIT_FAILURE);
+        quit();
+        exit(EXIT_FAILURE);
     }
 
     glfwMakeContextCurrent(glfwWindow);
@@ -20,7 +21,8 @@ Window::Window(int width, int height, std::string title)
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cerr << "Failed to initialize GLAD" << std::endl;
-        quit(EXIT_FAILURE);
+        quit();
+        exit(EXIT_FAILURE);
     }
 }
 

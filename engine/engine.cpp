@@ -10,7 +10,8 @@ void Betoneira::init()
     if (!glfwInit())
     {
         std::cerr << "ERROR::ENGINE: Could not initialize glfw." << std::endl;
-        quit(EXIT_FAILURE);
+        quit();
+        exit(EXIT_FAILURE);
     }
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
