@@ -5,6 +5,7 @@
 #include <string>
 #include "shared/shared.h"
 #include "color/color.h"
+#include "input/input.h"
 #include <iostream>
 
 namespace Betoneira

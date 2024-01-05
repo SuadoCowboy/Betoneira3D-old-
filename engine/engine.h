@@ -6,6 +6,7 @@
 #include "shader/shader.h"
 #include "file/file.h"
 #include "color/color.h"
+#include "input/input.h"
 
 namespace Betoneira
 {

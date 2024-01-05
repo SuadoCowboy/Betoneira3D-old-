@@ -20,6 +20,9 @@ Window::Window(int width, int height, std::string title)
         quit();
         exit(EXIT_FAILURE);
     }
+    
+    //glfwSetKeyCallback(glfwWindow, Input::KeyCallBack); // I believe this call back is more useful for texting than actual in-game key input
+    Input::GLFWWindow = glfwWindow;
 }
 
 Window::~Window(){}
