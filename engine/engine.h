@@ -8,6 +8,7 @@
 #include "color/color.h"
 #include "input/input.h"
 #include "random/random.h"
+#include "os/os.h"
 
 namespace Betoneira
 {
