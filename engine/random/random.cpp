@@ -2,6 +2,8 @@
 
 using namespace Betoneira;
 
+// TODO: pseudorandom stuff with boost
+
 int Random::randomInteger(int min, int max)
 {
 	return min + rand() % (max-min+1);
