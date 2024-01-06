@@ -2,18 +2,6 @@
 
 using namespace Betoneira;
 
-bool FileHandler::pathExists(std::string path)
-{
-    // to read metadata
-    struct stat info;
-
-    if (stat(path.c_str(), &info) == 0)
-        return true;
-    else
-        return false;
-
-}
-
 FileHandler::FileHandler(std::string _path)
 {
     path = _path;
@@ -36,7 +24,7 @@ bool FileHandler::open(std::ios_base::openmode mode)
     }
 
     // creates file if it does not exists
-    if (!pathExists(path))
+    if (!System::pathExists(path))
     {
         std::ofstream f(path);
         f << "";

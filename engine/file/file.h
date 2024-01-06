@@ -4,7 +4,8 @@
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <sys/stat.h>
+
+#include "os/os.h"
 
 namespace Betoneira
 {
@@ -34,10 +35,6 @@ namespace Betoneira
 
         // should be closed and opened again to read the updated file(if you wrote something to it)
         virtual std::string read();
-
-        // return 1 if exists
-        static bool pathExists(std::string path);
-
     private:
         std::fstream file;
     };
