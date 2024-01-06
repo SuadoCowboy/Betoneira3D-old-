@@ -1,9 +1,7 @@
 #pragma once
 
-#include "glad.h"
-#include <GLFW/glfw3.h>
-#include <string>
 #include "shared/shared.h"
+#include <string>
 #include "color/color.h"
 #include "input/input.h"
 #include <iostream>

@@ -2,8 +2,7 @@
 
 // see https://www.glfw.org/docs/3.3/input_guide.html to update this class
 
-#include "glad.h"
-#include <GLFW/glfw3.h>
+#include "shared/shared.h"
 #include <map>
 
 namespace Betoneira

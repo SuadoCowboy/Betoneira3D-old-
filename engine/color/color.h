@@ -1,7 +1,6 @@
 #pragma once
 
-#include "glad.h"
-#include <GLFW/glfw3.h>
+#include "shared/shared.h"
 #include <vector>
 #include <string>
 
