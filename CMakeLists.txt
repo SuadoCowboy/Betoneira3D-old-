@@ -1,18 +1,25 @@
 cmake_minimum_required(VERSION 3.20.0)
 cmake_policy(VERSION 3.20)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+if (CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)")
+    set(Boost_ARCHITECTURE "-x64")
+else()
+    set(Boost_ARCHITECTURE "-x32")
+endif()
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+set(Boost_USE_STATIC_LIBS        ON)
+set(Boost_USE_MULTITHREADED      ON)
+set(Boost_USE_STATIC_RUNTIME    OFF)
+find_package(Boost 1.77.0 REQUIRED COMPONENTS system filesystem unit_test_framework)
 
-find_package(glfw3 REQUIRED)
-find_package(OpenGL REQUIRED)
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/engine")
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/test")
 
-project(BetoneiraEngine VERSION 0.1)
-add_executable(BetoneiraEngine "${CMAKE_CURRENT_SOURCE_DIR}/test/main.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/engine.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/window/window.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/shared/shared.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/glad.c" "${CMAKE_CURRENT_SOURCE_DIR}/engine/shader/shader.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/file/file.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/color/color.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/input/input.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/engine/random/random.cpp")
+include(CTest)
+enable_testing()
 
-target_link_libraries(BetoneiraEngine glfw3)
-target_link_libraries(BetoneiraEngine OpenGL::GL)
+add_test(NAME "2D Game" COMMAND game)
 
-target_include_directories(BetoneiraEngine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/engine" "${CMAKE_CURRENT_SOURCE_DIR}/include")
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
