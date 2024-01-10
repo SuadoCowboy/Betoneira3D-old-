@@ -2,12 +2,9 @@
 
 using namespace Betoneira;
 
-FileHandler::FileHandler(std::string _path)
-{
-    path = _path;
-};
+FileHandler::FileHandler(std::string _path) : path(_path) {};
 
-FileHandler::FileHandler(){}
+FileHandler::FileHandler() : path("") {}
 FileHandler::~FileHandler(){}
 
 bool FileHandler::isOpen()
@@ -22,6 +19,8 @@ bool FileHandler::open(std::ios_base::openmode mode)
         std::cerr << "ERROR: path could not be opened because size is 0" << std::endl;
         return true;
     }
+
+    close();
 
     // creates file if it does not exists
     if (!System::pathExists(path))

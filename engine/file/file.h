@@ -33,7 +33,7 @@ namespace Betoneira
         // return 1 if error
         virtual bool write(const char* content);
 
-        // should be closed and opened again to read the updated file(if you wrote something to it)
+        // if you wrote something to it then close and open again to read the updated file
         virtual std::string read();
     private:
         std::fstream file;
