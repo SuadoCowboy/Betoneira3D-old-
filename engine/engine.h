@@ -9,6 +9,9 @@
 #include "input/input.h"
 #include "random/random.h"
 #include "os/os.h"
+#include "vector/vector.h"
+#include "render/render.h"
+#include "graphics/graphics.h"
 
 namespace Betoneira
 {

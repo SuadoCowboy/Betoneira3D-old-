@@ -15,13 +15,13 @@ Shader& Shader::use()
 void Shader::compile(const char* vertexSource, const char* fragmentSource, const char* geometrySource)
 {
     unsigned int vertexShader, fragmentShader, geometryShader;
-    
+
     // vertex Shader
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertexShader, 1, &vertexSource, NULL);
     glCompileShader(vertexShader);
     checkCompileErrors(vertexShader, "VERTEX");
-    
+
     // fragment Shader
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
@@ -36,6 +36,7 @@ void Shader::compile(const char* vertexSource, const char* fragmentSource, const
         glCompileShader(geometryShader);
         checkCompileErrors(geometryShader, "GEOMETRY");
     }
+
     // shader program
     ID = glCreateProgram();
     
