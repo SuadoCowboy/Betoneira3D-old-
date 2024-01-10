@@ -17,9 +17,9 @@ namespace Betoneira
         
         Window(int width, int height, const std::string& title);
         
-        Window(const Vector2i& size, const std::string& title);
-        Window(const Vector2u& size, const std::string& title);
-        Window(const Vector2f& size, const std::string& title);
+        Window(const Math::Vector2i& size, const std::string& title);
+        Window(const Math::Vector2u& size, const std::string& title);
+        Window(const Math::Vector2f& size, const std::string& title);
         
         ~Window();
 

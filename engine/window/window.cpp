@@ -30,17 +30,17 @@ Window::Window(int width, int height, const std::string& title)
     init(width, height, title);
 }
 
-Window::Window(const Vector2i& size, const std::string& title)
+Window::Window(const Math::Vector2i& size, const std::string& title)
 {
     init(size.x, size.y, title);
 }
 
-Window::Window(const Vector2u& size, const std::string& title)
+Window::Window(const Math::Vector2u& size, const std::string& title)
 {
     init(size.x, size.y, title);
 }
 
-Window::Window(const Vector2f& size, const std::string& title)
+Window::Window(const Math::Vector2f& size, const std::string& title)
 {
     init(size.x, size.y, title);
 }
