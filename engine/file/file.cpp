@@ -1,6 +1,6 @@
 #include "file.h"
 
-using namespace Betoneira;
+using namespace Betoneira::FileSystem;
 
 FileHandler::FileHandler(std::string _path) : path(_path) {};
 
@@ -12,7 +12,7 @@ bool FileHandler::isOpen()
     return file.is_open();
 }
 
-bool FileHandler::open(std::ios_base::openmode mode)
+bool FileHandler::open(openMode mode)
 {
     if (path.size() == 0)
     {
@@ -35,7 +35,7 @@ bool FileHandler::open(std::ios_base::openmode mode)
     return !isOpen();
 }
 
-bool FileHandler::open(std::string newPath, std::ios_base::openmode mode)
+bool FileHandler::open(std::string newPath, openMode mode)
 {
     path = newPath;
     return open(mode);
@@ -74,8 +74,13 @@ std::string FileHandler::read()
     return buf.str();
 }
 
-FileHandler& operator<<(FileHandler& file, const char* content)
+std::string FileHandler::getPath()
 {
-    file.write(content);
-    return file;
+    return path;
+}
+
+FileHandler& FileHandler::operator<<(const char* content)
+{
+    write(content);
+    return *this;
 }
