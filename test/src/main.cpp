@@ -7,7 +7,7 @@ int main(int, char**)
 {
     Betoneira::init();
 
-    Betoneira::Window window(800, 600, "Betoneira3D's First Triangle!");
+    Betoneira::Window window(800, 600, "Betoneira3D Dev's Little Sandbox");
 
     Betoneira::Color backgroundColor(21, 30, 59);
 
@@ -26,7 +26,7 @@ int main(int, char**)
         simpleShader.compile(vertexShaderSource.c_str(), fragmentShaderSource.c_str());
     }
 
-    Betoneira::Graphics2D::Triangle betoneiraFirstTriangle{simpleShader, {-0.5f, -0.5f}, {0.5f, -0.5f}, {0.0f, 0.5f} };
+    Betoneira::Graphics2D::Triangle triangle{simpleShader, {0.5f, -0.5f}, {-0.5f, -0.5f}, {0.0f, 0.5f} };
 
     while (!window.shouldClose())
     {
@@ -34,7 +34,8 @@ int main(int, char**)
 
         Betoneira::Input::update();
 
-        betoneiraFirstTriangle.draw(window);
+        triangle.setGLColor(.0f, sin(Betoneira::Time::getTime()) / 2.0f + 0.5f, .0f, 1.0f);
+        triangle.draw(window);
 
         if (Betoneira::Input::keyJustPressed(Betoneira::Input::Keys::Q))
             backgroundColor.setColor(Betoneira::Random::randomColor());
