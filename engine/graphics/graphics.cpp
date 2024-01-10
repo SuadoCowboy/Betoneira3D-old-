@@ -38,6 +38,40 @@ void Graphics2D::Triangle::draw(Window& window)
 {
     shader->use();
     glfwMakeContextCurrent(window.glfwWindow);
-    glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
+    glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
+void Graphics2D::Triangle::updateShaderColor()
+{
+    shader->setVector4f("color", color.getGLColor());
+}
+
+void Graphics2D::Triangle::setGLColor(float r, float g, float b, float a)
+{
+    color.setGLColor(r, g, b, a);
+    updateShaderColor();
+}
+
+void Graphics2D::Triangle::setColor(unsigned int r, unsigned int g, unsigned int b, unsigned int a)
+{
+    color.setColor(r, g, b, a);
+    updateShaderColor();
+}
+
+void Graphics2D::Triangle::setColor(Color color)
+{
+    color.setColor(color);
+    updateShaderColor();
+}
+
+void Graphics2D::Triangle::setColor(Math::Vector4c vector)
+{
+    color.setColor(vector);
+    updateShaderColor();
+}
+
+Color& Graphics2D::Triangle::getColor()
+{
+    return color;
 }
