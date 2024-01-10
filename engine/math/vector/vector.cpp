@@ -235,11 +235,14 @@ bool Vector4<T>::operator!=(const Vector4<T>& other) const
 template class Vector2<float>;
 template class Vector2<unsigned int>;
 template class Vector2<int>;
+template class Vector2<unsigned char>;
 
 template class Vector3<float>;
 template class Vector3<unsigned int>;
 template class Vector3<int>;
+template class Vector3<unsigned char>;
 
 template class Vector4<float>;
 template class Vector4<unsigned int>;
 template class Vector4<int>;
+template class Vector4<unsigned char>;

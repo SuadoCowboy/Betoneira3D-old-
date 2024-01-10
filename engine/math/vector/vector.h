@@ -78,14 +78,17 @@ namespace Betoneira::Math
     typedef Vector2<int> Vector2i;
     typedef Vector2<unsigned int> Vector2u;
     typedef Vector2<float> Vector2f;
+    typedef Vector2<unsigned char> Vector2c;
 
     typedef Vector3<int> Vector3i;
     typedef Vector3<unsigned int> Vector3u;
     typedef Vector3<float> Vector3f;
+    typedef Vector3<unsigned char> Vector3c;
     
     typedef Vector4<int> Vector4i;
     typedef Vector4<unsigned int> Vector4u;
     typedef Vector4<float> Vector4f;
+    typedef Vector4<unsigned char> Vector4c;
     
     template <typename T>
     std::string vector2ToString(const Vector2<T>& vector)
