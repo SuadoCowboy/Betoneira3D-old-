@@ -14,12 +14,12 @@ int main(int, char**)
     Betoneira::Shader simpleShader;
 
     {
-        Betoneira::FileHandler fileHandler{"assets/shaders/simple2D.vert"};
-        fileHandler.open(std::ios_base::in);
+        Betoneira::FileSystem::FileHandler fileHandler{"assets/shaders/simple2D.vert"};
+        fileHandler.open(Betoneira::FileSystem::FILE_READ);
 
         std::string vertexShaderSource = fileHandler.read();
         
-        fileHandler.open("assets/shaders/simple2D.frag", std::ios_base::in);
+        fileHandler.open("assets/shaders/simple2D.frag", Betoneira::FileSystem::FILE_READ);
         std::string fragmentShaderSource = fileHandler.read();
         fileHandler.close();
         
