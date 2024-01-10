@@ -9,6 +9,8 @@
 - (those are supposed to have their own classes)
 - ini file handler class(something like IniHandler? ConfigFileHandler?)
 
-- for networking, see: https://www.boost.org/doc/libs/1_83_0/doc/html/boost_asio.html
-
+- add all the keys to input
 - ISSUE: Input class -> when pressing Q to change color in game test, the first time we press it doesn't change.
+
+
+- for networking, see: https://www.boost.org/doc/libs/1_83_0/doc/html/boost_asio.html
