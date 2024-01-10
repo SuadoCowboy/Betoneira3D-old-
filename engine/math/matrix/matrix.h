@@ -12,13 +12,15 @@ namespace Betoneira::Math
     class Matrix4f
     {
     public:
-
         std::array<float, 16> elements = {
             1, 0, 0, 0, 
             0, 1, 0, 0,
             0, 0, 1, 0,
             0, 0, 0, 1
         };
+
+        Matrix4f();
+        ~Matrix4f();
     };
 
     const float* matrixDataPointer(const Matrix4f& matrix);
