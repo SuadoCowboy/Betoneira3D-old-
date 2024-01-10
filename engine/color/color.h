@@ -1,7 +1,8 @@
 #pragma once
 
 #include "shared/shared.h"
-#include <vector>
+#include "math/vector/vector.h"
+
 #include <string>
 
 namespace Betoneira
@@ -35,6 +36,8 @@ namespace Betoneira
         Color(int hexadecimal);
         ~Color();
 
+        Math::Vector4c& getColor();
+        Math::Vector4f& getGLColor();
         unsigned char getR();
         unsigned char getG();
         unsigned char getB();
@@ -42,15 +45,20 @@ namespace Betoneira
 
         void setColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a=255);
         void setColor(Color newColor);
+        void setColor(Math::Vector4c vector);
+        // sets GLColor (range is 1.0f-0.0f) the byte-color (255-0) is also changed
+        void setGLColor(float r, float g, float b, float a);
 
-        static GLfloat byteToGLfloat(unsigned char c);
+        static float byteToFloat(unsigned char c);
+        unsigned char floatToByte(float value);
         
         // for now, it doesn't support alpha values
         static Color hexToColor(int hexadecimalValue);
     private:
-        unsigned char r = 0, g = 0, b = 0, a = 255;
-        GLfloat GLr = 0.0f, GLg = 0.0f, GLb = 0.0f, GLa = 1.0f;
+        Math::Vector4c color = {0, 0, 0, 255};
+        Math::Vector4f GLColor = {.0f, .0f, .0f, 1.0f};
 
         void updateGLColor();
+        void updateColor();
     };
 }

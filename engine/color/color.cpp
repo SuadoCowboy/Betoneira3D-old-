@@ -4,66 +4,97 @@ using namespace Betoneira;
 
 Color::Color(){}
 
-Color::Color(unsigned char _r, unsigned char _g, unsigned char _b, unsigned char _a)
+Color::Color(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-    r = _r;
-    g = _g;
-    b = _b;
-    a = _a;
+    color.x = r;
+    color.y = g;
+    color.z = b;
+    color.w = a;
     
     updateGLColor();
 }
 
 Color::Color(int hexadecimal)
 {
-    setColor(Color::hexToColor(hexadecimal));
+    setColor(hexToColor(hexadecimal));
 }
 
 Color::~Color(){}
 
+Math::Vector4c& Color::getColor()
+{
+    return color;
+}
+
+Math::Vector4f& Color::getGLColor()
+{
+    return GLColor;
+}
+
 unsigned char Color::getR()
 {
-    return r;
+    return color.x;
 }
 
 unsigned char Color::getG()
 {
-    return g;
+    return color.y;
 }
 
 unsigned char Color::getB()
 {
-    return b;
+    return color.z;
 }
 
 unsigned char Color::getA()
 {
-    return a;
+    return color.w;
 }
 
-void Color::setColor(unsigned char _r, unsigned char _g, unsigned char _b, unsigned char _a)
+void Color::setColor(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-    r = _r;
-    g = _g;
-    b = _b;
-    a = _a;
+    color.x = r;
+    color.y = g;
+    color.z = b;
+    color.w = a;
     updateGLColor();
 }
 
 void Color::setColor(Color newColor)
 {
-    r = newColor.getR();
-    g = newColor.getG();
-    b = newColor.getB();
-    a = newColor.getA();
+    color.x = newColor.getR();
+    color.y = newColor.getG();
+    color.z = newColor.getB();
+    color.w = newColor.getA();
     updateGLColor();
 }
 
-GLfloat Color::byteToGLfloat(unsigned char c)
+void Color::setColor(Math::Vector4c vector)
+{
+    color = vector;
+    updateGLColor();
+}
+
+void Color::setGLColor(float r, float g, float b, float a)
+{
+    GLColor.x = r;
+    GLColor.y = g;
+    GLColor.z = b;
+    GLColor.w = a;
+
+    updateColor();
+}
+
+GLfloat Color::byteToFloat(unsigned char value)
 {
     // FIMUL instruction
     // https://community.khronos.org/t/how-to-convert-from-rgb-255-to-opengl-float-color/29288/2
-    return (1.0f/255) * c;
+    return (1.0f/255) * value;
+}
+
+unsigned char Color::floatToByte(float value)
+{
+    return value * 255;
 }
 
 Color Color::hexToColor(int hexadecimalValue)
@@ -74,8 +105,16 @@ Color Color::hexToColor(int hexadecimalValue)
 
 void Color::updateGLColor()
 {
-    GLr = byteToGLfloat(r);
-    GLg = byteToGLfloat(g);
-    GLb = byteToGLfloat(b);
-    GLa = byteToGLfloat(a);
+    GLColor.x = byteToFloat(color.x);
+    GLColor.y = byteToFloat(color.y);
+    GLColor.z = byteToFloat(color.z);
+    GLColor.w = byteToFloat(color.w);
+}
+
+void Color::updateColor()
+{
+    color.x = floatToByte(GLColor.x);
+    color.y = floatToByte(GLColor.y);
+    color.z = floatToByte(GLColor.z);
+    color.w = floatToByte(GLColor.w);
 }
