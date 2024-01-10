@@ -2,7 +2,7 @@
 
 using namespace Betoneira;
 
-Window::Window(int width, int height, std::string title)
+void Window::init(int width, int height, const std::string& title)
 {
     glfwWindow = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
     if (glfwWindow == NULL)
@@ -25,7 +25,31 @@ Window::Window(int width, int height, std::string title)
     Input::GLFWWindow = glfwWindow;
 }
 
-Window::~Window(){}
+Window::Window(int width, int height, const std::string& title)
+{
+    init(width, height, title);
+}
+
+Window::Window(const Vector2i& size, const std::string& title)
+{
+    init(size.x, size.y, title);
+}
+
+Window::Window(const Vector2u& size, const std::string& title)
+{
+    init(size.x, size.y, title);
+}
+
+Window::Window(const Vector2f& size, const std::string& title)
+{
+    init(size.x, size.y, title);
+}
+
+Window::~Window()
+{
+    if (glfwWindow)
+        glfwDestroyWindow(glfwWindow);
+}
 
 bool Window::shouldClose()
 {
