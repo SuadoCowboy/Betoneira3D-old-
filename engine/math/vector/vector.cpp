@@ -1,6 +1,6 @@
-#include "vector.h"
+#include "math/vector/vector.h"
 
-using namespace Betoneira;
+using namespace Betoneira::Math;
 
 // Vector2
 

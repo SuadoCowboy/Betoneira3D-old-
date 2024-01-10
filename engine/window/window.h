@@ -3,7 +3,7 @@
 #include "shared/shared.h"
 #include "color/color.h"
 #include "input/input.h"
-#include "vector/vector.h"
+#include "math/vector/vector.h"
 
 #include <string>
 #include <iostream>

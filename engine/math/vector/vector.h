@@ -3,7 +3,7 @@
 #include <string>
 #include <sstream>
 
-namespace Betoneira
+namespace Betoneira::Math
 {
     template <typename T>
     class Vector2

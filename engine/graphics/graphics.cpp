@@ -2,7 +2,7 @@
 
 using namespace Betoneira;
 
-Graphics2D::Triangle::Triangle(Shader& _shader, const Vector2f& point1, const Vector2f& point2, const Vector2f& point3)
+Graphics2D::Triangle::Triangle(Shader& _shader, const Math::Vector2f& point1, const Math::Vector2f& point2, const Math::Vector2f& point3)
 {
     float vertices[] = {
         point1.x, point1.y, 0.0f,
