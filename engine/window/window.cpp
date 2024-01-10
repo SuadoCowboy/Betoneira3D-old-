@@ -63,7 +63,7 @@ void Window::close()
 
 void Window::fill(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-    glClearColor(Color::byteToGLfloat(r), Color::byteToGLfloat(g), Color::byteToGLfloat(b), Color::byteToGLfloat(a));
+    glClearColor(Color::byteToFloat(r), Color::byteToFloat(g), Color::byteToFloat(b), Color::byteToFloat(a));
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
