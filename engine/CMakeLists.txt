@@ -11,7 +11,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
-add_library(BetoneiraEngine SHARED "${CMAKE_CURRENT_SOURCE_DIR}/engine.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/window/window.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/shared/shared.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/glad.c" "${CMAKE_CURRENT_SOURCE_DIR}/shader/shader.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/file/file.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/color/color.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/input/input.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/random/random.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/os/os.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/vector/vector.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/render/render.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/graphics/graphics.cpp")
+add_library(BetoneiraEngine SHARED "${CMAKE_CURRENT_SOURCE_DIR}/engine.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/window/window.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/shared/shared.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/glad.c" "${CMAKE_CURRENT_SOURCE_DIR}/shader/shader.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/file/file.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/color/color.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/input/input.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/random/random.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/os/os.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/math/vector/vector.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/math/matrix/matrix.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/render/render.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/graphics/graphics.cpp")
 
 target_link_libraries(BetoneiraEngine glfw3)
 target_link_libraries(BetoneiraEngine OpenGL::GL)
