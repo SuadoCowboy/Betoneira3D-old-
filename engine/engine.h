@@ -10,9 +10,8 @@
 #include "random/random.h"
 #include "os/os.h"
 #include "math/math.h" // already includes everything inside math folder
-#include "render/render.h"
-#include "graphics/graphics.h"
 #include "time/time.h"
+#include "graphics/graphics.h"
 
 namespace Betoneira
 {
