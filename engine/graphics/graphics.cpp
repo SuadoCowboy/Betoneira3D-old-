@@ -5,7 +5,7 @@ using namespace Betoneira;
 Graphics2D::Mesh::~Mesh()
 {
     glDeleteBuffers(1, &vertexBuffer);
-    glDeleteBuffers(1, &elementBuffer);
+    glDeleteBuffers(1, &indexBuffer);
 }
 
 void Graphics2D::Mesh::draw()
