@@ -5,5 +5,7 @@
 
 namespace Betoneira
 {
+    extern unsigned int vertexArray;
+    
     void quit();
 }
