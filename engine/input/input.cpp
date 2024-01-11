@@ -6,11 +6,16 @@ std::map<int, bool> Input::keysPressed {{Input::Q, false}, {Input::W, false}, {I
 std::map<int, bool> Input::keysJustPressed {{Input::Q, false}, {Input::W, false}, {Input::A, false}, {Input::S, false}, {Input::D, false}};
 std::map<int, bool> Input::keysJustReleased {{Input::Q, false}, {Input::W, false}, {Input::A, false}, {Input::S, false}, {Input::D, false}};
 
-GLFWwindow* Input::GLFWWindow = nullptr; // this value will be set by the last loaded Window class
+/*
+void Input::init()
+{
+    glfwSetKeyCallback(Window::glfwWindow, keyCallBack); // I believe this callback is more useful for texting than actual in-game key input
+}
+*/
 
 bool Input::keyPressed(int key)
 {
-    return (glfwGetKey(GLFWWindow, key) == GLFW_PRESS);
+    return (glfwGetKey(Window::glfwWindow, key) == GLFW_PRESS);
 }
 
 void Input::update()

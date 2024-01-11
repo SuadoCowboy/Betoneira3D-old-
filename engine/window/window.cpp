@@ -2,6 +2,8 @@
 
 using namespace Betoneira;
 
+GLFWwindow* Window::glfwWindow = nullptr;
+
 void Window::init(int width, int height, const std::string& title)
 {
     glfwWindow = glfwCreateWindow(width, height, title.c_str(), NULL, NULL);
@@ -14,41 +16,49 @@ void Window::init(int width, int height, const std::string& title)
 
     glfwMakeContextCurrent(glfwWindow);
 
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cerr << "Failed to initialize GLAD" << std::endl;
+    // Initialize GLAD
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
+        std::cerr << "ERROR::ENGINE: Could not initalize GLAD" << std::endl;
         quit();
         exit(EXIT_FAILURE);
     }
-    
-    //glfwSetKeyCallback(glfwWindow, Input::KeyCallBack); // I believe this call back is more useful for texting than actual in-game key input
-    Input::GLFWWindow = glfwWindow;
+
+    glGenVertexArrays(1, &vertexArray);
+    glBindVertexArray(vertexArray);
 }
 
-Window::Window(int width, int height, const std::string& title)
+void Window::setSize(int width, int height)
 {
-    init(width, height, title);
+    glfwSetWindowSize(glfwWindow, width, height);
 }
 
-Window::Window(const Math::Vector2i& size, const std::string& title)
+void Window::setSize(const Math::Vector2i& size)
 {
-    init(size.x, size.y, title);
+    glfwSetWindowSize(glfwWindow, size.x, size.y);
 }
 
-Window::Window(const Math::Vector2u& size, const std::string& title)
+void Window::setSize(const Math::Vector2u& size)
 {
-    init(size.x, size.y, title);
+    glfwSetWindowSize(glfwWindow, size.x, size.y);
 }
 
-Window::Window(const Math::Vector2f& size, const std::string& title)
+void Window::setSize(const Math::Vector2f& size)
 {
-    init(size.x, size.y, title);
+    glfwSetWindowSize(glfwWindow, size.x, size.y);
+}
+
+void Window::setTitle(const char* title)
+{
+    glfwSetWindowTitle(glfwWindow, title);
 }
 
 Window::~Window()
 {
     if (glfwWindow)
+    {
         glfwDestroyWindow(glfwWindow);
+        glfwWindow = nullptr;
+    }
 }
 
 bool Window::shouldClose()

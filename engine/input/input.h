@@ -3,6 +3,7 @@
 // see https://www.glfw.org/docs/3.3/input_guide.html to update this class
 
 #include "shared/shared.h"
+#include "window/window.h"
 #include <map>
 
 namespace Betoneira
@@ -36,8 +37,6 @@ namespace Betoneira
         extern std::map<int, bool> keysPressed;
         extern std::map<int, bool> keysJustPressed;
         extern std::map<int, bool> keysJustReleased;
-
-        extern GLFWwindow* GLFWWindow; // this value will be set by the last loaded Window class
 
         void update();
         bool keyPressed(int key);
