@@ -2,14 +2,11 @@
 
 #include <iostream>
 
-using namespace Betoneira;
-
 void Betoneira::init()
 {
-
     if (!glfwInit())
     {
-        std::cerr << "ERROR::ENGINE: Could not initialize glfw." << std::endl;
+        std::cerr << "ERROR::ENGINE: Could not initialize glfw" << std::endl;
         quit();
         exit(EXIT_FAILURE);
     }
