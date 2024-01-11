@@ -14,7 +14,7 @@ namespace Betoneira
     class Shader
     {
     public:
-        unsigned int ID;
+        unsigned int id;
 
         Shader();
         
