@@ -1,18 +1,16 @@
 #include "engine.h"
 
-#include <iostream>
-#include <string>
+namespace bt = Betoneira;
 
 int main(int, char**)
 {
-    Betoneira::init();
+    bt::init();
 
-    Betoneira::Window window(800, 600, "Betoneira3D Dev's Little Sandbox");
+    bt::Window::init(800, 600, "Betoneira3D Dev's Little Sandbox");
 
-    Betoneira::Color backgroundColor(21, 30, 59);
+    bt::Color backgroundColor(21, 30, 59);
 
-    Betoneira::Shader simpleShader;
-
+    bt::Shader simpleShader;
     {
         Betoneira::FileSystem::FileHandler fileHandler{"assets/shaders/simple2D.vert"};
         fileHandler.open(Betoneira::FileSystem::FILE_READ);
@@ -26,23 +24,30 @@ int main(int, char**)
         simpleShader.compile(vertexShaderSource.c_str(), fragmentShaderSource.c_str());
     }
 
-    Betoneira::Graphics2D::Triangle triangle{simpleShader, {0.5f, -0.5f}, {-0.5f, -0.5f}, {0.0f, 0.5f} };
+    float vertices[] = {
+        // positions
+         0.5f,  0.5f, 0.0f, // top right
+         0.5f, -0.5f, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f, // top left
+    };
+    
+    unsigned int indices[] = {  
+        0, 1, 2, // first triangle
+        1, 2, 3  // second triangle
+    };
 
-    while (!window.shouldClose())
+    bt::Graphics2D::Mesh square{simpleShader, vertices, indices};
+
+    while (!bt::Window::shouldClose())
     {
-        window.fill(backgroundColor);
+        bt::Window::fill(backgroundColor);
 
-        Betoneira::Input::update();
-
-        triangle.setGLColor(.0f, sin(Betoneira::Time::getTime()) / 2.0f + 0.5f, .0f, 1.0f);
-        triangle.draw(window);
-
-        if (Betoneira::Input::keyJustPressed(Betoneira::Input::Keys::Q))
-            backgroundColor.setColor(Betoneira::Random::randomColor());
+        square.draw();
         
-        window.clear();
+        bt::Window::clear();
     }
 
-    Betoneira::quit();
+    bt::quit();
     return EXIT_SUCCESS;
 }
