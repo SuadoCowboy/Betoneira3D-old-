@@ -37,13 +37,13 @@ int main(int, char**)
         1, 2, 3  // second triangle
     };
 
-    bt::Graphics::Mesh2D square{simpleShader, vertices, indices};
+    bt::Graphics::Mesh2D rectangle{simpleShader, vertices, indices};
 
     while (!bt::Window::shouldClose())
     {
         bt::Window::fill(backgroundColor);
 
-        square.draw();
+        rectangle.draw();
         
         bt::Window::clear();
     }
