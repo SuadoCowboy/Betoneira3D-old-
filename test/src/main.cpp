@@ -37,7 +37,7 @@ int main(int, char**)
         1, 2, 3  // second triangle
     };
 
-    bt::Graphics2D::Mesh square{simpleShader, vertices, indices};
+    bt::Graphics::Mesh2D square{simpleShader, vertices, indices};
 
     while (!bt::Window::shouldClose())
     {
