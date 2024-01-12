@@ -3,14 +3,14 @@
 #include "shared/shared.h"
 #include "shader/shader.h"
 
-namespace Betoneira::Graphics2D
+namespace Betoneira::Graphics
 {
-    class Mesh
+    class Mesh2D
     {
     public:
         template<size_t N, size_t N2>
-        Mesh(Shader& shader, float (&vertices)[N], unsigned int (&indices)[N2]);
-        ~Mesh();
+        Mesh2D(Shader& shader, float (&vertices)[N], unsigned int (&indices)[N2]);
+        ~Mesh2D();
 
         void draw();
     
@@ -19,19 +19,28 @@ namespace Betoneira::Graphics2D
 
         Shader* shader;
     };
-}
 
-/*namespace Betoneira::Graphics3D
-{
-    class Mesh
+    /*
+    class Mesh3D
     {
+    public:
+        template<size_t N, size_t N2>
+        Mesh3D(Shader& shader, float (&vertices)[N], unsigned int (&indices)[N2]);
+        ~Mesh3D();
+
+        void draw();
+    
+    private:
+        unsigned int vertexBuffer, indexBuffer, indicesLength;
+
+        Shader* shader;
     }
+    */
 }
-*/
 
 // unfortunately, it won't work on graphics.cpp
 template<size_t N, size_t N2>
-Betoneira::Graphics2D::Mesh::Mesh(Shader& _shader, float (&vertices)[N], unsigned int (&indices)[N2])
+Betoneira::Graphics::Mesh2D::Mesh2D(Shader& _shader, float (&vertices)[N], unsigned int (&indices)[N2])
 {
     shader = &_shader;
 

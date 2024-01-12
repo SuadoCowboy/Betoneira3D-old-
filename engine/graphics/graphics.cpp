@@ -1,14 +1,14 @@
 #include "graphics.h"
 
-using namespace Betoneira;
+using namespace Betoneira::Graphics;
 
-Graphics2D::Mesh::~Mesh()
+Mesh2D::~Mesh2D()
 {
     glDeleteBuffers(1, &vertexBuffer);
     glDeleteBuffers(1, &indexBuffer);
 }
 
-void Graphics2D::Mesh::draw()
+void Mesh2D::draw()
 {
     shader->use();
     glDrawElements(GL_TRIANGLES, indicesLength, GL_UNSIGNED_INT, 0);
