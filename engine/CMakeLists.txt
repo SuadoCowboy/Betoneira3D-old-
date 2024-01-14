@@ -12,4 +12,7 @@ target_link_libraries(BetoneiraEngine glfw3)
 target_link_libraries(BetoneiraEngine OpenGL::GL)
 target_link_libraries(BetoneiraEngine Boost::filesystem)
 
-target_include_directories(BetoneiraEngine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+target_link_libraries(BetoneiraEngine "${JPEG_LIBRARIES}")
+target_link_libraries(BetoneiraEngine "${PNG_LIBRARIES}")
+
+target_include_directories(BetoneiraEngine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}" "${JPEG_INCLUDE_DIR}" "${PNG_INCLUDE_DIR}")

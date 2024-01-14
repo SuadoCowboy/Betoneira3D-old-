@@ -17,6 +17,9 @@ find_package(Boost 1.84.0 REQUIRED COMPONENTS filesystem)
 find_package(glfw3 REQUIRED)
 find_package(OpenGL REQUIRED)
 
+find_package(JPEG REQUIRED)
+find_package(PNG REQUIRED)
+
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/engine")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/test")
 
