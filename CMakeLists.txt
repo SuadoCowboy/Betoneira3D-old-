@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20.0)
 cmake_policy(VERSION 3.20)
 
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
 if (CMAKE_SYSTEM_PROCESSOR MATCHES "(x86)|(X86)|(amd64)|(AMD64)")
     set(Boost_ARCHITECTURE "-x64")
 else()
@@ -10,7 +12,10 @@ endif()
 set(Boost_USE_STATIC_LIBS        ON)
 set(Boost_USE_MULTITHREADED      ON)
 set(Boost_USE_STATIC_RUNTIME    OFF)
-find_package(Boost 1.77.0 REQUIRED COMPONENTS system filesystem unit_test_framework)
+find_package(Boost 1.84.0 REQUIRED COMPONENTS filesystem)
+
+find_package(glfw3 REQUIRED)
+find_package(OpenGL REQUIRED)
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/engine")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/test")
