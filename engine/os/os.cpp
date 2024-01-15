@@ -16,3 +16,15 @@ bool System::isFile(std::string path)
 {
     return boost::filesystem::is_regular_file(path);
 }
+
+std::string System::baseName(std::string _path)
+{
+    boost::filesystem::path p{_path};
+    return p.stem().string();
+}
+
+std::string System::fileExtension(std::string _path)
+{
+    boost::filesystem::path p{_path};
+    return p.extension().string().substr(1);
+}
