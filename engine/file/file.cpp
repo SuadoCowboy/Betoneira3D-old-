@@ -1,6 +1,7 @@
 #include "file.h"
 
-using namespace Betoneira::FileSystem;
+using namespace Betoneira;
+using namespace FileSystem;
 
 FileHandler::FileHandler(std::string _path) : path(_path) {};
 
