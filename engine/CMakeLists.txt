@@ -1,17 +1,28 @@
-cmake_minimum_required(VERSION 3.20.0)
-cmake_policy(VERSION 3.20)
-
-project(BetoneiraEngine VERSION 0.1.0 LANGUAGES C CXX)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_library(BetoneiraEngine SHARED "${CMAKE_CURRENT_SOURCE_DIR}/engine.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/window/window.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/shared/shared.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/glad.c" "${CMAKE_CURRENT_SOURCE_DIR}/shader/shader.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/file/file.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/color/color.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/input/input.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/random/random.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/os/os.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/math/vector/vector.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/math/matrix/matrix.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/time/time.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/graphics/graphics.cpp")
+add_library(BetoneiraEngine SHARED
+    "${CMAKE_CURRENT_SOURCE_DIR}/engine.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/glad.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/SOIL/soil.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/SOIL/image_dxt.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/SOIL/image_helper.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/SOIL/stb_image_aug.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/window/window.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/shared/shared.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/shader/shader.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/file/file.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/color/color.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/input/input.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/random/random.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/os/os.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/math/vector/vector.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/math/matrix/matrix.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/time/time.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/graphics.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/texture/texture.cpp"
+)
 
 target_link_libraries(BetoneiraEngine glfw3)
 target_link_libraries(BetoneiraEngine OpenGL::GL)
 target_link_libraries(BetoneiraEngine Boost::filesystem)
-
 target_link_libraries(BetoneiraEngine "${JPEG_LIBRARIES}")
 target_link_libraries(BetoneiraEngine "${PNG_LIBRARIES}")
 

@@ -12,6 +12,7 @@
 #include "math/math.h" // already includes everything inside math folder
 #include "time/time.h"
 #include "graphics/graphics.h"
+#include "texture/texture.h"
 
 namespace Betoneira
 {
