@@ -7,7 +7,7 @@ add_library(BetoneiraEngine SHARED
     "${CMAKE_CURRENT_SOURCE_DIR}/SOIL/stb_image_aug.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/window/window.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/shared/shared.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/shader/shader.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/shader/shader.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/file/file.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/color/color.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/input/input.cpp"
@@ -17,7 +17,7 @@ add_library(BetoneiraEngine SHARED
     "${CMAKE_CURRENT_SOURCE_DIR}/math/matrix/matrix.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/time/time.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/graphics/graphics.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/texture/texture.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/texture/texture.cpp"
 )
 
 target_link_libraries(BetoneiraEngine glfw3)
