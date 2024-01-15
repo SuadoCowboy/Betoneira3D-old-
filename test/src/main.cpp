@@ -10,26 +10,26 @@ int main(int, char**)
 
     bt::Color backgroundColor(21, 30, 59);
 
-    bt::Shader simpleShader;
+    bt::Shader textureShader;
     {
-        Betoneira::FileSystem::FileHandler fileHandler{"assets/shaders/simple2D.vert"};
+        Betoneira::FileSystem::FileHandler fileHandler{"assets/shaders/texture2D.vert"};
         fileHandler.open(Betoneira::FileSystem::FILE_READ);
 
         std::string vertexShaderSource = fileHandler.read();
         
-        fileHandler.open("assets/shaders/simple2D.frag", Betoneira::FileSystem::FILE_READ);
+        fileHandler.open("assets/shaders/texture2D.frag", Betoneira::FileSystem::FILE_READ);
         std::string fragmentShaderSource = fileHandler.read();
         fileHandler.close();
         
-        simpleShader.compile(vertexShaderSource.c_str(), fragmentShaderSource.c_str());
+        textureShader.compile(vertexShaderSource.c_str(), fragmentShaderSource.c_str());
     }
 
     float vertices[] = {
-        // positions
-         0.5f,  0.5f, 0.0f, // top right
-         0.5f, -0.5f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f, // bottom left
-        -0.5f,  0.5f, 0.0f, // top left
+        // positions          // colors           // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
     };
     
     unsigned int indices[] = {  
@@ -37,7 +37,11 @@ int main(int, char**)
         1, 2, 3  // second triangle
     };
 
-    bt::Graphics::Mesh2D rectangle{simpleShader, vertices, indices};
+    bt::Graphics::TextureMesh2D rectangle{textureShader, vertices, indices, "assets/textures/betoneira cromada.jpg"};
+    
+    rectangle.addAttribute(0, 3, 8, 0); // position
+    rectangle.addAttribute(1, 3, 8, 3); // color
+    rectangle.addAttribute(2, 2, 8, 6); // texture position
 
     while (!bt::Window::shouldClose())
     {
