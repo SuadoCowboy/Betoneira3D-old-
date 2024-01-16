@@ -20,4 +20,6 @@ void Betoneira::init()
 #endif
 
     srand(time(NULL));
+
+    Input::init();
 }
