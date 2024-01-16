@@ -20,6 +20,8 @@ namespace Betoneira
         static void setSize(const Math::Vector2u& size);
         static void setSize(const Math::Vector2f& size);
 
+        static Math::Vector2i getSize();
+
         static void setTitle(const char* title);
 
         static bool shouldClose();

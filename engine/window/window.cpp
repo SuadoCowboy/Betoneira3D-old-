@@ -49,6 +49,13 @@ void Window::setSize(const Math::Vector2f& size)
     glfwSetWindowSize(glfwWindow, size.x, size.y);
 }
 
+Math::Vector2i Window::getSize()
+{
+    int width, height;
+    glfwGetWindowSize(glfwWindow, &width, &height);
+    return {width, height};
+}
+
 void Window::setTitle(const char* title)
 {
     glfwSetWindowTitle(glfwWindow, title);
