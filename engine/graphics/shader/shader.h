@@ -1,7 +1,8 @@
 #pragma once
 
 #include "math/vector/vector.h"
-#include "math/matrix/matrix.h"
+
+#include <glm/glm.hpp>
 
 #include <string>
 
@@ -31,7 +32,9 @@ namespace Betoneira
         void setVector3f(const char* name, const Math::Vector3f& value, bool useShader=false);
         void setVector4f(const char* name, float x, float y, float z, float w, bool useShader=false);
         void setVector4f(const char* name, const Math::Vector4f& value, bool useShader=false);
-        void setMatrix4f(const char* name, const Math::Matrix4f& matrix, bool useShader=false);
+        void setMatrix2x2(const char* name, const glm::mat2 &mat, bool useShader=false) const;
+        void setMatrix3x3(const char* name, const glm::mat3 &mat, bool useShader=false) const;
+        void setMatrix4x4(const char* name, const glm::mat4 &mat, bool useShader=false) const;
     
     private:
         void checkCompileErrors(unsigned int shader, std::string type);

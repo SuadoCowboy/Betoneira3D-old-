@@ -15,7 +15,6 @@ add_library(BetoneiraEngine SHARED
     "${CMAKE_CURRENT_SOURCE_DIR}/os/os.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/math/math.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/math/vector/vector.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/math/matrix/matrix.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/time/time.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/graphics/graphics.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/graphics/texture/texture.cpp"

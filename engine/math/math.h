@@ -5,7 +5,6 @@
 #endif
 
 #include "vector/vector.h"
-#include "matrix/matrix.h"
 
 namespace Betoneira::Math
 {

@@ -130,11 +130,17 @@ void Shader::setVector4f(const char* name, const Math::Vector4f& value, bool use
         use();
     glUniform4f(glGetUniformLocation(id, name), value.x, value.y, value.z, value.w);
 }
-void Shader::setMatrix4f(const char* name, const Math::Matrix4f& matrix, bool useShader)
+void Shader::setMatrix2x2(const char* name, const glm::mat2 &mat, bool useShader) const
 {
-    if (useShader)
-        use();
-    glUniformMatrix4fv(glGetUniformLocation(id, name), 1, false, Math::matrixDataPointer(matrix));
+    glUniformMatrix2fv(glGetUniformLocation(id, name), 1, GL_FALSE, &mat[0][0]);
+}
+void Shader::setMatrix3x3(const char* name, const glm::mat3 &mat, bool useShader) const
+{
+    glUniformMatrix3fv(glGetUniformLocation(id, name), 1, GL_FALSE, &mat[0][0]);
+}
+void Shader::setMatrix4x4(const char* name, const glm::mat4 &mat, bool useShader) const
+{
+    glUniformMatrix4fv(glGetUniformLocation(id, name), 1, GL_FALSE, &mat[0][0]);
 }
 
 void Shader::checkCompileErrors(unsigned int shader, std::string type)
