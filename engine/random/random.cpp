@@ -1,5 +1,7 @@
 #include "random/random.h"
 
+#include <stdlib.h>
+
 using namespace Betoneira;
 
 // TODO: pseudorandom stuff with boost

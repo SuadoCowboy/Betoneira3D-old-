@@ -1,5 +1,7 @@
 #include "os.h"
 
+#include <boost/filesystem.hpp>
+
 using namespace Betoneira;
 
 bool System::pathExists(std::string path)

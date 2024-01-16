@@ -1,5 +1,7 @@
 #include "time.h"
 
+#include "shared/shared.h"
+
 using namespace Betoneira;
 
 std::chrono::system_clock::time_point Time::getSystemTime()

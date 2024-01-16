@@ -1,11 +1,10 @@
 #pragma once
 
-#include "shared/shared.h"
 #include "color/color.h"
 #include "math/vector/vector.h"
+#include "shared/shared.h"
 
 #include <string>
-#include <iostream>
 
 namespace Betoneira
 {

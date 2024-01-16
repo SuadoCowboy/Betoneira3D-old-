@@ -1,5 +1,7 @@
 #include "window.h"
 
+#include <iostream>
+
 using namespace Betoneira;
 
 GLFWwindow* Window::glfwWindow = nullptr;

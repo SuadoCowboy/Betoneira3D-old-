@@ -4,7 +4,6 @@
 
 #include "math/vector/vector.h"
 
-#include <math.h>
 #include <array>
 
 namespace Betoneira::Math

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <boost/filesystem.hpp>
 
 namespace Betoneira::System
 {

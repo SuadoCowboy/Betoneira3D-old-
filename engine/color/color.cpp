@@ -1,4 +1,4 @@
-#include "color/color.h"
+#include "color.h"
 
 using namespace Betoneira;
 
@@ -85,7 +85,7 @@ void Color::setGLColor(float r, float g, float b, float a)
     updateColor();
 }
 
-GLfloat Color::byteToFloat(unsigned char value)
+float Color::byteToFloat(unsigned char value)
 {
     // FIMUL instruction
     // https://community.khronos.org/t/how-to-convert-from-rgb-255-to-opengl-float-color/29288/2

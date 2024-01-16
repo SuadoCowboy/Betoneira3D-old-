@@ -2,8 +2,6 @@
 
 #include <chrono>
 
-#include "shared/shared.h"
-
 namespace Betoneira::Time
 {
     // returns the OS time

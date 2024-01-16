@@ -1,4 +1,6 @@
-#include "math/matrix/matrix.h"
+#include "matrix.h"
+
+#include <math.h>
 
 using namespace Betoneira;
 

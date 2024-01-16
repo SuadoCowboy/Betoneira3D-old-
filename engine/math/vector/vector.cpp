@@ -1,4 +1,4 @@
-#include "math/vector/vector.h"
+#include "vector.h"
 
 using namespace Betoneira::Math;
 

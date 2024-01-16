@@ -1,6 +1,5 @@
 #pragma once
 
-#include <stdlib.h>
 #include "color/color.h"
 
 namespace Betoneira
