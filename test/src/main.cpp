@@ -1,28 +1,17 @@
 #include "engine.h"
 
+#include <iostream>
+
 namespace bt = Betoneira;
 
 int main(int, char**)
 {
     bt::init();
-
     bt::Window::init(800, 600, "Betoneira3D Dev's Little Sandbox");
 
     bt::Color backgroundColor(21, 30, 59);
 
-    bt::Shader textureShader;
-    {
-        Betoneira::FileSystem::FileHandler fileHandler{"assets/shaders/texture2D.vert"};
-        fileHandler.open(Betoneira::FileSystem::FILE_READ);
-
-        std::string vertexShaderSource = fileHandler.read();
-        
-        fileHandler.open("assets/shaders/texture2D.frag", Betoneira::FileSystem::FILE_READ);
-        std::string fragmentShaderSource = fileHandler.read();
-        fileHandler.close();
-        
-        textureShader.compile(vertexShaderSource.c_str(), fragmentShaderSource.c_str());
-    }
+    bt::Shader textureShader{"assets/shaders/texture2D.vert", "assets/shaders/texture2D.frag"};
 
     float vertices[] = {
         // positions          // colors           // texture coords
