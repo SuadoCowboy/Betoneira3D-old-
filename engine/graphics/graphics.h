@@ -38,6 +38,8 @@ namespace Betoneira::Graphics
 
         void draw();
 
+        Texture& getTexture();
+
     private:
         Texture texture;
     };

@@ -1,6 +1,7 @@
 #include "graphics.h"
 
-using namespace Betoneira::Graphics;
+using namespace Betoneira;
+using namespace Graphics;
 
 Mesh2D::~Mesh2D()
 {
@@ -27,6 +28,11 @@ void Mesh2D::addAttribute(GLuint index, GLint size, float verticesLineLength, un
 }
 
 TextureMesh2D::~TextureMesh2D(){}
+
+Texture& TextureMesh2D::getTexture()
+{
+    return texture;
+}
 
 void TextureMesh2D::draw()
 {
