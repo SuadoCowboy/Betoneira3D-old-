@@ -13,6 +13,7 @@ add_library(BetoneiraEngine SHARED
     "${CMAKE_CURRENT_SOURCE_DIR}/input/input.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/random/random.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/os/os.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/math/math.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/math/vector/vector.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/math/matrix/matrix.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/time/time.cpp"
