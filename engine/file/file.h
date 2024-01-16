@@ -1,12 +1,7 @@
 #pragma once
 
-#include <iostream>
 #include <fstream>
-#include <sstream>
 #include <string>
-
-#include "shared/shared.h"
-#include "os/os.h"
 
 namespace Betoneira::FileSystem
 {
@@ -14,6 +9,9 @@ namespace Betoneira::FileSystem
     static const openMode FILE_BINARY = (openMode)4;
     static const openMode FILE_READ = (openMode)8;
     static const openMode FILE_WRITE = (openMode)16;
+
+    // returns 1 if failed
+    bool getFileContent(const std::string& path, std::string& content, openMode mode=FILE_READ);
 
     class FileHandler
     {

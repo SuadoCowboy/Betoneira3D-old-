@@ -1,5 +1,11 @@
 #include "file.h"
 
+#include <iostream>
+#include <sstream>
+
+#include "shared/shared.h"
+#include "os/os.h"
+
 using namespace Betoneira;
 using namespace FileSystem;
 
@@ -84,4 +90,22 @@ FileHandler& FileHandler::operator<<(const char* content)
 {
     write(content);
     return *this;
+}
+
+bool FileSystem::getFileContent(const std::string& path, std::string& content, openMode mode)
+{
+    if (!System::isFile(path))
+    {
+        std::cerr << "ERROR::FILESYSTEM: path is not a file or does not exists" << std::endl;
+        return 1;
+    }
+
+    FileHandler file{path};
+    file.open(mode);
+
+    content = file.read();
+    
+    file.close();
+
+    return 0;
 }
