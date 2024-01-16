@@ -1,5 +1,9 @@
 #include "engine.h"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include <iostream>
 
 namespace bt = Betoneira;
@@ -37,11 +41,12 @@ int main(int, char**)
     {
         bt::Window::fill(backgroundColor);
 
-        bt::Math::Matrix4f transform;
-        transform = bt::Math::translate(transform, bt::Math::Vector3f(.5f, -.5f, .0f));
-        transform = bt::Math::rotate(transform, (float)glfwGetTime(), bt::Math::Vector3f(.0f, .0f, 1.0f));
 
-        textureShader.setMatrix4f("transform", transform, true);
+        glm::mat4 transform = glm::mat4(1.0f);
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+
+        textureShader.setMatrix4x4("transform", transform, true);
 
         rectangle.draw();
         
