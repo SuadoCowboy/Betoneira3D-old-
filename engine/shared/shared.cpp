@@ -1,4 +1,4 @@
-#include "shared/shared.h"
+#include "shared.h"
 
 unsigned int Betoneira::vertexArray = 0;
 
