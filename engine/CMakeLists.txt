@@ -12,8 +12,6 @@ add_library(BetoneiraEngine SHARED
     
     "${CMAKE_CURRENT_SOURCE_DIR}/shared/shared.cpp"
     
-    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/shader/shader.cpp"
-    
     "${CMAKE_CURRENT_SOURCE_DIR}/file/file.cpp"
     
     "${CMAKE_CURRENT_SOURCE_DIR}/color/color.cpp"
@@ -28,8 +26,10 @@ add_library(BetoneiraEngine SHARED
     
     "${CMAKE_CURRENT_SOURCE_DIR}/time/time.cpp"
     
-    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/graphics.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/graphics/texture/texture.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/shader/shader.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/mesh2d/mesh2d.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/graphics/mesh2dTextured/mesh2dTextured.cpp"
 )
 
 target_link_libraries(BetoneiraEngine glfw3)
@@ -38,4 +38,4 @@ target_link_libraries(BetoneiraEngine Boost::filesystem)
 target_link_libraries(BetoneiraEngine "${JPEG_LIBRARIES}")
 target_link_libraries(BetoneiraEngine "${PNG_LIBRARIES}")
 
-target_include_directories(BetoneiraEngine PUBLIC "${CMAKE_SOURCE_DIR}/external" "${CMAKE_CURRENT_SOURCE_DIR}" "${JPEG_INCLUDE_DIR}" "${PNG_INCLUDE_DIR}")
+target_include_directories(BetoneiraEngine PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_CURRENT_SOURCE_DIR}/../external" "${JPEG_INCLUDE_DIR}" "${PNG_INCLUDE_DIR}")

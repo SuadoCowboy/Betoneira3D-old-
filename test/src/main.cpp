@@ -69,7 +69,7 @@ int main(int, char**)
 
     //simpleShader.setVector4f("color", 0.9764f, 0.8078f, 0.9254f, 1.0f, true);
 
-    bt::Graphics::TextureMesh2D rectangle{textureShader, vertices, indices, "assets/textures/betoneira cromada.jpg"};
+    bt::Graphics::Mesh2DTextured rectangle{textureShader, vertices, indices, "assets/textures/betoneira cromada.jpg"};
 
     rectangle.addAttribute(0, 3, 5, 0); // position
     rectangle.addAttribute(1, 2, 5, 3); // texture position

@@ -1,4 +1,4 @@
-#include "graphics.h"
+#include "Mesh2D.h"
 
 using namespace Betoneira;
 using namespace Graphics;
@@ -25,17 +25,4 @@ void Mesh2D::addAttribute(GLuint index, GLint size, float verticesLineLength, un
     // unbind
     //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-}
-
-TextureMesh2D::~TextureMesh2D(){}
-
-Texture& TextureMesh2D::getTexture()
-{
-    return texture;
-}
-
-void TextureMesh2D::draw()
-{
-    texture.bind();
-    Mesh2D::draw();
 }
