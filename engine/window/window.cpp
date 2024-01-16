@@ -25,6 +25,8 @@ void Window::init(int width, int height, const std::string& title)
         exit(EXIT_FAILURE);
     }
 
+    glEnable(GL_DEPTH_TEST);
+    
     glGenVertexArrays(1, &vertexArray);
     glBindVertexArray(vertexArray);
 }
@@ -80,15 +82,21 @@ void Window::close()
     glfwSetWindowShouldClose(glfwWindow, true);
 }
 
+void Window::fill(float r, float g, float b, float a)
+{
+    glClearColor(r, g, b, a);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
 void Window::fill(unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 {
-    glClearColor(Color::byteToFloat(r), Color::byteToFloat(g), Color::byteToFloat(b), Color::byteToFloat(a));
-    glClear(GL_COLOR_BUFFER_BIT);
+    fill(Color::byteToFloat(r), Color::byteToFloat(g), Color::byteToFloat(b), Color::byteToFloat(a));
 }
 
 void Window::fill(Color color)
 {
-    fill(color.getR(), color.getG(), color.getB(), color.getA());
+    Math::Vector4f GLColor = color.getGLColor();
+    fill(GLColor.x, GLColor.y, GLColor.z, GLColor.w);
 }
 
 void Window::clear()

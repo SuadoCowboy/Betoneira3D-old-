@@ -28,6 +28,7 @@ namespace Betoneira
         static void close();
         static void clear();
         
+        static void fill(float r, float g, float b, float a);
         static void fill(unsigned char r, unsigned char g, unsigned char b, unsigned char a=255);
         static void fill(Color color);
     private:
