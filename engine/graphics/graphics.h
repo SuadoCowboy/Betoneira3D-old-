@@ -3,6 +3,7 @@
 #include "shared/shared.h"
 #include "shader/shader.h"
 #include "texture/texture.h"
+#include "math/math.h"
 
 #include <string>
 
@@ -19,9 +20,10 @@ namespace Betoneira::Graphics
         void draw();
 
         void addAttribute(GLuint index, GLint size, float verticesLineLength, unsigned int lineIndex);
-    
+
     private:
         unsigned int vertexBuffer, indexBuffer, indicesLength;
+        Math::Vector4f vector{1.0f, .0f, .0f, 1.0f};
 
         Shader* shader;
     };
