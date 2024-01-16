@@ -2,7 +2,7 @@
 
 #include <math.h>
 
-using namespace Betoneira:
+using namespace Betoneira;
 
 float Math::degreesToRadians(float degrees)
 {
