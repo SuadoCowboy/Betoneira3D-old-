@@ -82,12 +82,12 @@ Betoneira::Graphics::Mesh2D::Mesh2D(Shader& _shader, float (&vertices)[N], unsig
 template<size_t N, size_t N2>
 Betoneira::Graphics::TextureMesh2D::TextureMesh2D(Shader& shader, float (&vertices)[N], unsigned int (&indices)[N2], std::string path) : Mesh2D(shader, vertices, indices)
 {
-    texture.load(path);
-
     texture.bind();
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);	
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     texture.unbind();
+
+    texture.load(path);
 }
