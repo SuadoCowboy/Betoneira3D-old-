@@ -1,10 +1,10 @@
 #version 330 core
 
-out vec4 FragColor;
+out vec4 fragColor;
 
-in vec4 ourPos;
+uniform vec4 color;
 
 void main()
 {
-    FragColor = vec4(ourPos.x+0.9764f, ourPos.y+0.8078f, ourPos.z+0.9254f, 1.0f);
+    fragColor = color;
 }
